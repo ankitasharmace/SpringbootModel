@@ -1,16 +1,15 @@
-package com.example.demo;
+package com.example.demo.Model;
 
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-@Component
+@Service
 public class FeatureCreation {
     private float avg_hotel_br;
     private float avg_hotel_ctr;
     private float avg_hotel_btod;
     private float discount_per;
-
-
     public  float discount(int sprice,int fprice) {
         discount_per = ((sprice - fprice) / sprice) * 100;
         return discount_per;

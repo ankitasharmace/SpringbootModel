@@ -1,14 +1,12 @@
-package com.example.demo;
+package com.example.demo.Model;
 
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-
+import org.springframework.stereotype.Service;
 import java.util.HashMap;
 import java.util.Map;
-@Component
+
+@Service
 public class ModelSelection {
-    public int finalmodel(int cityId){
+    public int getModel(int cityId){
         Map<Integer,Integer> hm = new HashMap<>();
 
 

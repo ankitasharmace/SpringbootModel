@@ -1,22 +1,17 @@
-package com.example.demo;
+package com.example.demo.Entities;
 
 import io.searchbox.annotations.JestId;
-import io.searchbox.core.Index;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.redis.core.RedisHash;
 
-import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.io.Serializable;
-public class HotelData implements Serializable {
-    @JestId
+
+@Entity
+@RedisHash("hotelData")
+public class hotelData implements Serializable {
+    @Id @JestId
     private String hotelid;
-
-    public String getHotelid() {
-        return hotelid;
-    }
-
-    public void setHotelid(String hotelid) {
-        this.hotelid = hotelid;
-    }
 
     private String latitude;
     private String longitude;
@@ -29,9 +24,7 @@ public class HotelData implements Serializable {
     private int detailsFlag;
     private int impressionFlag;
     private int cityId;
-    public HotelData(){
 
-    }
     public int getCityId() {
         return cityId;
     }
@@ -39,8 +32,6 @@ public class HotelData implements Serializable {
     public void setCityId(int cityId) {
         this.cityId = cityId;
     }
-
-
 
     public int getBookingFlag() {
         return bookingFlag;
@@ -66,8 +57,13 @@ public class HotelData implements Serializable {
         this.impressionFlag = impressionFlag;
     }
 
+    public String getHotelid() {
+        return hotelid;
+    }
 
-
+    public void setHotelid(String hotelid) {
+        this.hotelid = hotelid;
+    }
 
 
 
@@ -126,7 +122,5 @@ public class HotelData implements Serializable {
     public void setDisplayCategory(String displayCategory) {
         this.displayCategory = displayCategory;
     }
-
-
 
 }

@@ -1,9 +1,11 @@
-package com.example.demo;
+package com.example.demo.Entities;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.annotation.Id;
-
+import javax.persistence.Entity;
 import java.util.List;
+
+@Entity
 public class RequestFormat {
     @Id
     private int cityId;

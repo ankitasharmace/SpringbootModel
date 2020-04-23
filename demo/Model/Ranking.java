@@ -26,6 +26,7 @@ public class Ranking {
     public List<String> processInput(RequestFormat hotelid) throws IOException {
         int cityId=hotelid.getCityId();
         int modelId=modelselection.getModel(cityId);
+        esrepository.setValues();
         List<String> hotellist=new ArrayList<>();
         hotellist=hotelid.getHotelIds();
         HashMap<String, List<Double>> hotels = features.makeFeatures(hotellist,modelId);

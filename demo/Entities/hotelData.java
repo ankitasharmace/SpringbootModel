@@ -1,16 +1,17 @@
 package com.example.demo.Entities;
 
 import io.searchbox.annotations.JestId;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.redis.core.RedisHash;
+import org.springframework.data.redis.core.index.Indexed;
 
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import java.io.Serializable;
 
 @Entity
 @RedisHash("hotelData")
 public class hotelData implements Serializable {
-    @Id @JestId
+    @Indexed @JestId @Id
     private String hotelid;
 
     private String latitude;
@@ -24,6 +25,13 @@ public class hotelData implements Serializable {
     private int detailsFlag;
     private int impressionFlag;
     private int cityId;
+    public String getHotelid() {
+        return hotelid;
+    }
+
+    public void setHotelid(String hotelid) {
+        this.hotelid = hotelid;
+    }
 
     public int getCityId() {
         return cityId;
@@ -56,16 +64,6 @@ public class hotelData implements Serializable {
     public void setImpressionFlag(int impressionFlag) {
         this.impressionFlag = impressionFlag;
     }
-
-    public String getHotelid() {
-        return hotelid;
-    }
-
-    public void setHotelid(String hotelid) {
-        this.hotelid = hotelid;
-    }
-
-
 
     public String getLatitude() {
         return latitude;

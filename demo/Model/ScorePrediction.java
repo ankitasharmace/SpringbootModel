@@ -36,6 +36,8 @@ public class ScorePrediction {
 
         ObjectMapper mapper = new ObjectMapper();
         Map<String, Double> Response = mapper.readValue(scores, Map.class);
+        //sort the results
+
         try {
             List<Map.Entry<String, Double> > list =
                     new LinkedList<Map.Entry<String, Double> >(Response.entrySet());
@@ -48,13 +50,10 @@ public class ScorePrediction {
                     return (o2.getValue()).compareTo(o1.getValue());
                 }
             });
-
-
             List<String> sortedHotelList = new ArrayList<>();
             for(Map.Entry<String,Double> m : list){
                 sortedHotelList.add(m.getKey());
             }
-
             return sortedHotelList;
 
         } catch (Exception e) {

@@ -22,7 +22,6 @@ public class ESRepository {
     private JestClient jestClient;
 
     public void setValues() throws IOException {
-
         hotelData hotelinfo = new hotelData();
         hotelinfo.setHotelid("ghi");
         hotelinfo.setLatitude("28.6129");
@@ -57,8 +56,8 @@ public class ESRepository {
                 .build());
     }
 
-    public List<hotelData> getAllHotels() throws IOException {
 
+    public List<hotelData> getAllHotels() throws IOException {
         SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
         searchSourceBuilder.query(QueryBuilders.matchAllQuery());
         searchSourceBuilder.size(10000);
@@ -74,6 +73,7 @@ public class ESRepository {
         return results;
     }
 
+
     public List<hotelData> getDataByQuery(List<String> hotelIds) throws IOException {
             String queryDSL = "{"+
                     " \"query\":{"+
@@ -87,10 +87,8 @@ public class ESRepository {
             List<hotelData> result = new LinkedList<>();
             try {
                 result = jestClient.execute(new Search.Builder(queryDSL).addIndex("hotelid").addType("k").build()).getSourceAsObjectList(hotelData.class);
-
             }
             catch (Exception e){
-
                 System.out.println(e);
                 return result;
             }

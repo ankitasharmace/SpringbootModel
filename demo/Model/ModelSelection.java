@@ -9,7 +9,6 @@ public class ModelSelection {
     public int getModel(int cityId){
         Map<Integer,Integer> hm = new HashMap<>();
 
-
         hm.put(1, 10);
         hm.put(2, 7);
         hm.put(3, 9);
